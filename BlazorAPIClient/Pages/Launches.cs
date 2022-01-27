@@ -7,12 +7,13 @@ namespace BlazorAPIClient.Pages
     public partial class Launches
     {
         [Inject]
-        ISpaceXDataService SpaceXDataService { get; set; }
-        private LaunchDto[] launches;
+        ISpaceXDataService? SpaceXDataService { get; set; }
+        private LaunchDto[]? launches;
 
         protected override async Task OnInitializedAsync()
         {
-            launches = await SpaceXDataService.GetAllLaunches();
+            if (SpaceXDataService != null)
+                launches = await SpaceXDataService.GetAllLaunches();
         }
     }
 }

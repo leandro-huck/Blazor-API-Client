@@ -7,11 +7,12 @@ namespace BlazorAPIClient.Pages
     public partial class FetchData
     {
         [Inject]
-        private HttpClient Http { get; set; }
-        private LaunchDto[] launches;
+        private HttpClient? Http { get; set; }
+        private LaunchDto[]? launches;
         protected override async Task OnInitializedAsync()
         {
-            launches = await Http.GetFromJsonAsync<LaunchDto[]>("/rest/launches/");
+            if (Http != null)
+                launches = await Http.GetFromJsonAsync<LaunchDto[]>("/rest/launches/");
         }
 
     }

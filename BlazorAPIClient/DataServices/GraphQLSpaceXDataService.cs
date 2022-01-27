@@ -12,7 +12,7 @@ namespace BlazorAPIClient.DataServices
         {
             _httpClient = httpClient;
         }
-        public async Task<LaunchDto[]>? GetAllLaunches()
+        public async Task<LaunchDto[]?> GetAllLaunches()
         {
             Console.WriteLine("--> GraphQL SpaceX Data Service: Getting launchers...");
             var queryObject = new {

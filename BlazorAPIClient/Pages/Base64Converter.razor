@@ -25,17 +25,17 @@
 
 
 @code {
-    public string NonBase64Body { get; set; }
-    public string Base64Body { get; set; }
+    public string? NonBase64Body { get; set; }
+    public string? Base64Body { get; set; }
 
     private void ConvertToBase64()
     {
-        var plaintTextByte = Encoding.UTF8.GetBytes(NonBase64Body);
+        var plaintTextByte = Encoding.UTF8.GetBytes(NonBase64Body ?? "");
         Base64Body = Convert.ToBase64String(plaintTextByte);
     }
     private void ConvertFromBase64()
     {
-        var base64EncondeBytes = Convert.FromBase64String(Base64Body);
+        var base64EncondeBytes = Convert.FromBase64String(Base64Body ?? "");
         NonBase64Body = Encoding.UTF8.GetString(base64EncondeBytes);
     }
 }

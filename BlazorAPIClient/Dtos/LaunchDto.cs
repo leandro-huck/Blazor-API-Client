@@ -5,6 +5,11 @@ namespace BlazorAPIClient.Dtos
 {
     public class LaunchDto
     {
+        public LaunchDto()
+        {
+            Id = "";
+            MissionName = "";
+        }
         [JsonPropertyName("id")]
         public string Id { get; set; }
         [JsonPropertyName("is_tentative")]

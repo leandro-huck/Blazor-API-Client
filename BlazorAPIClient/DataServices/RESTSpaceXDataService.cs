@@ -11,7 +11,7 @@ namespace BlazorAPIClient.DataServices
         {
             _httpClient = httpClient;
         }
-        public async Task<LaunchDto[]>? GetAllLaunches()
+        public async Task<LaunchDto[]?> GetAllLaunches()
         {
             Console.WriteLine("--> REST SpaceX Data Service: Getting launchers...");
             return await _httpClient.GetFromJsonAsync<LaunchDto[]>("/rest/launches");
